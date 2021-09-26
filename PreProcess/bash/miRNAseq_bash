@@ -1,0 +1,7 @@
+#! /bin/bash
+
+for i in $(seq 1 33)
+do
+   Rscript /home/giordano/Methylation/Methylation_data_make_script.R $i
+   sleep 30
+done

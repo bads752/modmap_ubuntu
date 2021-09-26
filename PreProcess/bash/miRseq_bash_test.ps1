@@ -1,0 +1,2 @@
+for ($i=1; $i -le 33; $i=$i+1 ) 
+{& "C:\Program Files\R\R-4.0.4\bin\Rscript.exe"  "C:\Users\giordano\Trabalho\2019-2022\Doutorado\Development\ws-modmap\modmap\PreProcess\Script\miRNAseq_data_make_script.R" $i;}
