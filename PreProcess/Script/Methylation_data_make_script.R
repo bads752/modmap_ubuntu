@@ -20,7 +20,7 @@ projects<-unlist(projects)
 
 
 CancerSite <- projects[as.numeric(commandArgs(TRUE)[1])]
-CancerSite <- 'CHOL'
+#CancerSite <- 'ACC'
 print(CancerSite)
 TargetDirectory <- paste0("C:/Users/giordano/Trabalho/2019-2022/Doutorado/Development/ws-modmap/Input_Data/Methylation/")
 
@@ -32,7 +32,7 @@ assign(paste0(CancerSite,'_Data'),Preprocess_DNAmethylation(CancerSite,
 directories,lg=F, mvt = 0.2, bct='limma',normal=T,svtmp='C:/Users/giordano/')) 
 
 save(list = c(paste0(CancerSite,'_Data')),
-    file=paste0('C:/Users/giordano/Trabalho/2019-2022/Doutorado/Development/ws-modmap/PreProcessed_Data/Methylation/',
+    file=paste0('C:/Users/giordano/Trabalho/2019-2022/Doutorado/Development/ws-modmap/PreProccesed_Data/Methylation/',
     paste0(CancerSite,'_Data'),'.RData'))
   
 

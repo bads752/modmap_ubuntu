@@ -1,4 +1,6 @@
-source('/home/giordano/Trabalho/2019-2022/Doutorado/Development/ws-modmap/modmap/PreProcess/Script/aux_scripts/source_lib.R')
+source('C:/Users/giordano/Trabalho/2019-2022/Doutorado/Development/ws-modmap/modmap_02/PreProcess/Script/aux_scripts/source_lib.R')
+
+
 
 
 
@@ -1193,7 +1195,7 @@ TCGA_fread_load<-function(data,meth_reduce=T,csv.name,delim="tab",
   
   save(cols,file =cf)
   save(rd,file=rf)
-  cm<-paste('Rscript /home/giordano/Trabalho/2019-2022/Doutorado/Development/ws-modmap/modmap/PreProcess/Script/aux_scripts/Methylation_fread_script.R', 
+  cm<-paste('Rscript C:/Users/giordano/Trabalho/2019-2022/Doutorado/Development/ws-modmap/modmap/PreProcess/Script/aux_scripts/Methylation_fread_script.R', 
             csv.name, delim='tab', fname ,show_progress_bar, Probes, sdir,
             paste0("'",CancerSite,"'"), cf, 
             paste0("'",meth_reduce,"'"), rf)
@@ -1281,7 +1283,7 @@ Preprocess_CancerSite_Methylation27k <- function(data=NULL,CancerSite, directory
           delim="'\t'"
           fname<-paste0(CancerSite,'_Meth','_raw')
           show_progress_bar = T
-          Probes='/home/giordano/Trabalho/2019-2022/Doutorado/Development/ws-modmap/modmap/PreProcess/Resources/p27k.RData'
+          Probes='C:/Users/giordano/Trabalho/2019-2022/Doutorado/Development/ws-modmap/modmap/PreProcess/Resources/p27k.RData'
           sdir=directory
           CancerSite=CancerSite
           cf<- paste0(directory,'/',CancerSite,'_cols.RData')
@@ -1299,7 +1301,7 @@ Preprocess_CancerSite_Methylation27k <- function(data=NULL,CancerSite, directory
             delim="'\t'"
             fname<-paste0(CancerSite,'_Meth','_raw')
             show_progress_bar = T
-            Probes='/home/giordano/Trabalho/2019-2022/Doutorado/Development/ws-modmap/modmap/PreProcess/Resources/p27k.RData'
+            Probes='C:/Users/giordano/Trabalho/2019-2022/Doutorado/Development/ws-modmap/modmap/PreProcess/Resources/p27k.RData'
             sdir=directory
             CancerSite=CancerSite
             cf<- paste0(directory,'/',CancerSite,'_cols.RData')
@@ -1708,7 +1710,7 @@ Preprocess_CancerSite_Methylation450k <- function(data=NULL,CancerSite, director
           delim="'\t'"
           fname<-paste0(CancerSite,'_Meth','_raw')
           show_progress_bar = T
-          Probes='/home/giordano/Trabalho/2019-2022/Doutorado/Development/ws-modmap/modmap/PreProcess/Resources/p27k.RData'
+          Probes='C:/Users/giordano/Trabalho/2019-2022/Doutorado/Development/ws-modmap/modmap/PreProcess/Resources/p27k.RData'
           sdir=directory
           CancerSite=CancerSite
           cf<- paste0(directory,'/',CancerSite,'_cols.RData')
@@ -1726,7 +1728,7 @@ Preprocess_CancerSite_Methylation450k <- function(data=NULL,CancerSite, director
             delim="'\t'"
             fname<-paste0(CancerSite,'_Meth','_raw')
             show_progress_bar = T
-            Probes='/home/giordano/Trabalho/2019-2022/Doutorado/Development/ws-modmap/modmap/PreProcess/Resources/p27k.RData'
+            Probes='C:/Users/giordano/Trabalho/2019-2022/Doutorado/Development/ws-modmap/modmap/PreProcess/Resources/p27k.RData'
             sdir=directory
             CancerSite=CancerSite
             cf<- paste0(directory,'/',CancerSite,'_cols.RData')
@@ -1776,7 +1778,7 @@ Preprocess_CancerSite_Methylation450k <- function(data=NULL,CancerSite, director
           delim="'\t'"
           fname<-paste0(CancerSite,'_Meth','_raw')
           show_progress_bar = T
-          Probes='/home/giordano/Trabalho/2019-2022/Doutorado/Development/ws-modmap/modmap/PreProcess/Resources/p27k.RData'
+          Probes='C:/Users/giordano/Trabalho/2019-2022/Doutorado/Development/ws-modmap/modmap/PreProcess/Resources/p27k.RData'
           sdir=directory
           CancerSite=CancerSite
           cf<- paste0(directory,CancerSite,'_cols.RData')
@@ -1794,7 +1796,7 @@ Preprocess_CancerSite_Methylation450k <- function(data=NULL,CancerSite, director
             delim="'\t'"
             fname<-paste0(CancerSite,'_Meth','_raw')
             show_progress_bar = T
-            Probes='/home/giordano/Trabalho/2019-2022/Doutorado/Development/ws-modmap/modmap/PreProcess/Resources/p27k.RData'
+            Probes='C:/Users/giordano/Trabalho/2019-2022/Doutorado/Development/ws-modmap/modmap/PreProcess/Resources/p27k.RData'
             sdir=directory
             CancerSite=CancerSite
             cf<- paste0(directory,CancerSite,'_cols.RData')
@@ -2797,8 +2799,9 @@ PCA<-function(data,batch='batch',main='Title',meta=metainfo,outrm=T){
     pcomp<-function(x){
       x<-x[ , which(apply(x, 2, var) != 0)]
       x<-x[ which(apply(x, 1, var) != 0),]
+      x=scale(t(x),center = T,scale = T)
       
-      pca <- prcomp(t(x), scale=T, center=TRUE) 
+      pca <- prcomp(t(x)) 
       
       ## calculate the percentage of variation that each PC accounts for...
       pca.var <- pca$sdev^2

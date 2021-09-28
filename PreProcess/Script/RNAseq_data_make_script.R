@@ -22,7 +22,7 @@ projects<-unlist(projects)
 
 
 CancerSite <- projects[as.numeric(commandArgs(TRUE)[1])]
-CancerSite <- 'ESCA'
+#CancerSite <- 'SKCM'
 print(CancerSite)
 TargetDirectory <- paste0("C:/Users/giordano/Trabalho/2019-2022/Doutorado/Development/ws-modmap/Input_Data/RNAseq/")
 directories <- Download_TCGA_data(CancerSite, TargetDirectory,data='RNAseq')
